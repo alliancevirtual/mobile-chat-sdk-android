@@ -39,6 +39,7 @@ class HubspotWebActivity : AppCompatActivity() {
         binding = ActivityWebviewBinding.inflate(layoutInflater)
         setContentView(binding.root)
         applyEdgeToEdgeInsets()
+        binding.hubspotCloseButton.setOnClickListener { finish() }
         val chatFlowId = intent.getStringExtra(CHAT_FLOW_KEY)
         val pushData = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             intent.extras?.getSerializable(HS_PUSH_DATA, PushNotificationChatData::class.java)
